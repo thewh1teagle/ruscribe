@@ -7,17 +7,20 @@ import { cx } from '~/lib/utils'
 import AudioInput from '~/pages/home/AudioInput'
 import AudioPlayer from './AudioPlayer'
 import ProgressPanel from './ProgressPanel'
-import { viewModel } from './viewModel'
+import { viewModel as mainViewModel } from './viewModel'
+import { viewModel as voiceTypeViewModel } from './voiceTypeViewModel'
 import AudioDeviceInput from '~/components/AudioDeviceInput'
 import { ReactComponent as FileIcon } from '~/icons/file.svg'
 import { ReactComponent as MicrphoneIcon } from '~/icons/microphone.svg'
 import { ReactComponent as LinkIcon } from '~/icons/link.svg'
+import { ReactComponent as ChatIcon } from '~/icons/chat.svg'
 import { useEffect } from 'react'
 import { webviewWindow } from '@tauri-apps/api'
 
 export default function Home() {
 	const { t } = useTranslation()
-	const vm = viewModel()
+	const vm = mainViewModel()
+	const voiceTypeVm = voiceTypeViewModel()
 
 	async function showWindow() {
 		const currentWindow = webviewWindow.getCurrentWebviewWindow()
@@ -48,6 +51,13 @@ export default function Home() {
 				</a>
 				<a role="tab" onClick={vm.switchToLinkTab} className={cx('tab [--tab-border-color:gray]', vm.preference.homeTabIndex === 2 && 'tab-active')}>
 					<LinkIcon className="w-[18px] h-[18px]" />
+				</a>
+
+				<a
+					role="tab"
+					onClick={() => vm.preference.setHomeTabIndex(3)}
+					className={cx('tab [--tab-border-color:gray]', vm.preference.homeTabIndex === 3 && 'tab-active')}>
+					<ChatIcon className="w-[18px] h-[18px]" />
 				</a>
 			</div>
 
@@ -161,6 +171,19 @@ export default function Home() {
 								</button>
 							</>
 						)}
+					</div>
+				</div>
+			)}
+
+			{vm.preference.homeTabIndex === 3 && (
+				<div className="flex w-[300px] flex-col m-auto">
+					<h3 className="mt-5 text-center">{t('common.voice-typing')}</h3>
+					<LanguageInput />
+					<AudioDeviceInput device={vm.inputDevice} setDevice={vm.setInputDevice} devices={vm.devices} type="input" />
+
+					<button className="btn btn-primary mt-5">Start</button>
+					<div className="mt-5 justify-center items-center w-full self-center text-center">
+						Hold <kbd className="kbd kbd-sm">ctrl</kbd> + <kbd className="kbd kbd-sm">J</kbd> and speak
 					</div>
 				</div>
 			)}

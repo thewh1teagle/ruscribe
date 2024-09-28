@@ -104,6 +104,10 @@
     "fs:default",
     "fs:allow-exists",
     "deep-link:allow-get-current",
-    "clipboard-manager:allow-write-text"
+    "clipboard-manager:allow-write-text",
+    "global-shortcut:default",
+    "global-shortcut:allow-register",
+    "global-shortcut:allow-unregister",
+    "global-shortcut:allow-unregister-all"
   ]
 }

@@ -6,3 +6,5 @@ pub mod transcript;
 
 #[cfg(test)]
 mod test;
+
+pub use whisper_rs;
