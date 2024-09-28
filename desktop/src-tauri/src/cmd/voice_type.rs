@@ -1,3 +1,8 @@
+/*
+As long as the stream active, it will write to the buffer
+If start/stop called the last stream will be stop.
+If tab changed, the stream will stop.
+*/
 use super::audio::AudioDevice;
 use once_cell::sync::Lazy;
 use ringbuffer::{AllocRingBuffer, RingBuffer};

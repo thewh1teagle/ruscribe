@@ -180,8 +180,6 @@ export default function Home() {
 					<h3 className="mt-5 text-center">{t('common.voice-typing')}</h3>
 					<LanguageInput />
 					<AudioDeviceInput device={vm.inputDevice} setDevice={vm.setInputDevice} devices={vm.devices} type="input" />
-
-					<button className="btn btn-primary mt-5">Start</button>
 					<div className="mt-5 justify-center items-center w-full self-center text-center">
 						Hold <kbd className="kbd kbd-sm">ctrl</kbd> + <kbd className="kbd kbd-sm">J</kbd> and speak
 					</div>
