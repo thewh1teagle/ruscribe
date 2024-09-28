@@ -113,5 +113,6 @@
 	"updating-modal-body": "Updaterar Vibe till version {{version}}",
 	"updating-modal-title": "Uppdaterar...",
 	"use-word-timestamps": "Tidsstämplar per ord",
+	"voice-typing": "Röstskrivning",
 	"when-completing-transcription": "När du slutför transkriptionen"
 }

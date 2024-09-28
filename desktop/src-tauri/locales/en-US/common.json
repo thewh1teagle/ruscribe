@@ -113,5 +113,6 @@
 	"updating-modal-body": "Updating Vibe to version {{version}}",
 	"updating-modal-title": "Updating...",
 	"use-word-timestamps": "Timestamps per each word",
+	"voice-typing": "Voice Typing",
 	"when-completing-transcription": "When completing transcription"
 }

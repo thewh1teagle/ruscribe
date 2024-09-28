@@ -113,5 +113,6 @@
 	"updating-modal-body": "Atualizando o Vibe para a versão {{version}}",
 	"updating-modal-title": "Atualizando....",
 	"use-word-timestamps": "Carimbos de data e hora por cada palavra",
+	"voice-typing": "Digitação por voz",
 	"when-completing-transcription": "Ao completar a transcrição"
 }

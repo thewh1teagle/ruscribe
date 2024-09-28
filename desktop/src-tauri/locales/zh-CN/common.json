@@ -113,5 +113,6 @@
 	"updating-modal-body": "正在将 Vibe 更新到 {{version}} 版本",
 	"updating-modal-title": "正在更新...",
 	"use-word-timestamps": "使用单词级时间戳",
+	"voice-typing": "语音打字",
 	"when-completing-transcription": "完成转录时"
 }

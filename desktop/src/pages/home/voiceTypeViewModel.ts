@@ -1,15 +1,21 @@
 import { unregister } from '@tauri-apps/plugin-deep-link'
 import { register, unregisterAll } from '@tauri-apps/plugin-global-shortcut'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export function viewModel() {
+	const [active, setActive] = useState(false)
+
 	async function setupKeyboardShortcut() {
 		await unregisterAll()
 		await register('Ctrl+J', (event) => {
-			console.log('Shortcut triggered', event.state)
+			setActive(event.state == 'Pressed')
 		})
 	}
 	useEffect(() => {
 		setupKeyboardShortcut()
 	}, [])
+
+	return {
+		active,
+	}
 }

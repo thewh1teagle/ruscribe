@@ -177,11 +177,23 @@ export default function Home() {
 
 			{vm.preference.homeTabIndex === 3 && (
 				<div className="flex w-[300px] flex-col m-auto">
-					<h3 className="mt-5 text-center">{t('common.voice-typing')}</h3>
+					<h2 className="mt-8 text-center text-xl opacity-60">Voice To Text</h2>
 					<LanguageInput />
 					<AudioDeviceInput device={vm.inputDevice} setDevice={vm.setInputDevice} devices={vm.devices} type="input" />
-					<div className="mt-5 justify-center items-center w-full self-center text-center">
-						Hold <kbd className="kbd kbd-sm">ctrl</kbd> + <kbd className="kbd kbd-sm">J</kbd> and speak
+
+					<div className="card bg-base-300 border-primary border card-compact mt-5 w-full shadow-xl">
+						<div className="card-body">
+							<span className="text-lg">Activation shortcut</span>
+							<div className="flex">
+								<p className="text-sm opacity-60">Hold to speak</p>
+
+								<div>
+									<kbd className={cx('kbd', voiceTypeVm.active && 'bg-primary text-white')}>ctrl</kbd>
+									{' + '}
+									<kbd className={cx('kbd', voiceTypeVm.active && 'bg-primary text-white')}>J</kbd>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			)}

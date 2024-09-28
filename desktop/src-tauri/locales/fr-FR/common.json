@@ -113,5 +113,6 @@
 	"updating-modal-body": "Mise à jour de Vibe vers la version {{version}}",
 	"updating-modal-title": "Mise à jour en cours…",
 	"use-word-timestamps": "Horodatages pour chaque mot",
+	"voice-typing": "Saisie vocale",
 	"when-completing-transcription": "Quand la transcription est terminée"
 }
