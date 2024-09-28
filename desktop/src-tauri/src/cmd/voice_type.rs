@@ -6,7 +6,8 @@ use std::sync::{
     Mutex,
 };
 
-static TYPE_ENABLED: Lazy<AtomicBool> = Lazy::new(|| AtomicBool::new(false));
+static HOLDING_KEYS: Lazy<AtomicBool> = Lazy::new(|| AtomicBool::new(false));
+static STREAM_ACTIVE: Lazy<AtomicBool> = Lazy::new(|| AtomicBool::new(false));
 static BUFFER: Lazy<Mutex<AllocRingBuffer<i32>>> =
     Lazy::new(|| Mutex::new(AllocRingBuffer::with_capacity_power_of_2(16000 * 60))); // maximum of 1 minute
 
@@ -33,5 +34,5 @@ pub fn stop_voice_capture() {}
 
 #[tauri::command]
 pub fn set_voice_type(val: bool) {
-    TYPE_ENABLED.store(val, Ordering::Relaxed);
+    HOLDING_KEYS.store(val, Ordering::Relaxed);
 }
